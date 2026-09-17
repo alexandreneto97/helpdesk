@@ -1,0 +1,541 @@
+.ticket-section {
+  width: 90%;
+  max-width: 1250px;
+  margin: 40px auto;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.ticket-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   TÍTULO DA SEÇÃO
+========================= */
+
+.ticket-title-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ticket-title-heading svg {
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.ticket-header h2 {
+  margin: 0;
+
+  color: #f3f4f6;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  letter-spacing: -0.4px;
+}
+
+.ticket-header p {
+  margin: 5px 0 0;
+
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* =========================
+   AÇÕES DO CABEÇALHO
+========================= */
+
+.ticket-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================
+   CONTADOR
+========================= */
+
+.ticket-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 70px;
+  height: 38px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #2d2f36;
+  border-radius: 8px;
+
+  background: #1b1c21;
+  color: #9ca3af;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================
+   BOTÃO NOVO TICKET
+========================= */
+
+.create-ticket-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 130px;
+  height: 38px;
+
+  padding: 0 16px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #0a255e;
+  border-radius: 8px;
+
+  background: #0c2b6e;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.create-ticket-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+
+  transform: translateY(-1px);
+}
+
+.create-ticket-button:active {
+  transform: translateY(0);
+}
+
+.create-ticket-button svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* =========================
+   TABELA
+========================= */
+
+.table-container {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #2d2f36;
+  border-radius: 12px;
+
+  background: #1b1c21;
+}
+
+.ticket-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+/* =========================
+   CABEÇALHO DA TABELA
+========================= */
+
+.ticket-table th {
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  background: #202126;
+  color: #9ca3af;
+
+  text-align: left;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+
+  border-bottom: 1px solid #2d2f36;
+
+  white-space: nowrap;
+}
+
+.ticket-table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.ticket-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* =========================
+   CÉLULAS
+========================= */
+
+.ticket-table td {
+  box-sizing: border-box;
+
+  padding: 16px;
+
+  color: #e5e7eb;
+
+  font-size: 14px;
+
+  border-bottom: 1px solid #2d2f36;
+
+  vertical-align: middle;
+}
+
+/* =========================
+   LINHAS
+========================= */
+
+.ticket-table tbody tr {
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ticket-table tbody tr:hover {
+  background: #23242a;
+}
+
+.ticket-table tbody tr:active {
+  background: #292a31;
+}
+
+.ticket-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================
+   ALINHAMENTO DAS COLUNAS
+========================= */
+
+/* ID */
+
+.ticket-table th:nth-child(1),
+.ticket-table td:nth-child(1) {
+  width: 6%;
+}
+
+/* Título */
+
+.ticket-table th:nth-child(2),
+.ticket-table td:nth-child(2) {
+  width: 17%;
+}
+
+/* Descrição */
+
+.ticket-table th:nth-child(3),
+.ticket-table td:nth-child(3) {
+  width: 24%;
+}
+
+/* Status */
+
+.ticket-table th:nth-child(4),
+.ticket-table td:nth-child(4) {
+  width: 11%;
+  text-align: center;
+}
+
+/* Prioridade */
+
+.ticket-table th:nth-child(5),
+.ticket-table td:nth-child(5) {
+  width: 11%;
+  text-align: center;
+}
+
+/* Responsável */
+
+.ticket-table th:nth-child(6),
+.ticket-table td:nth-child(6) {
+  width: 12%;
+}
+
+/* Criado em */
+
+.ticket-table th:nth-child(7),
+.ticket-table td:nth-child(7) {
+  width: 12%;
+  text-align: center;
+}
+
+/* Ações */
+
+.ticket-table th:nth-child(8),
+.ticket-table td:nth-child(8) {
+  width: 7%;
+  text-align: center;
+}
+
+/* =========================
+   ID
+========================= */
+
+.ticket-id {
+  color: #9ca3af !important;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.ticket-title {
+  color: #f3f4f6 !important;
+
+  font-weight: 600;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.ticket-description {
+  color: #9ca3af !important;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   RESPONSÁVEL
+========================= */
+
+.ticket-responsible {
+  color: #d1d5db;
+
+  font-size: 13px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   DATA DE CRIAÇÃO
+========================= */
+
+.ticket-created-at {
+  color: #9ca3af;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+
+  text-align: center;
+}
+
+/* =========================
+   AÇÕES
+========================= */
+
+.ticket-actions {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.ticket-actions button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ticket-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.ticket-actions button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   EDITAR
+========================= */
+
+.edit-button {
+  background: #1e3a8a;
+
+  color: #60a5fa;
+
+  border-color: #1e40af !important;
+}
+
+.edit-button:hover {
+  background: #1e40af;
+
+  color: #ffffff;
+}
+
+/* =========================
+   EXCLUIR
+========================= */
+
+.delete-button {
+  background: #2a1d20;
+
+  color: #f87171;
+
+  border-color: #4b272b !important;
+}
+
+.delete-button:hover {
+  background: #3a2024;
+
+  color: #ffffff;
+
+  border-color: #6b3036 !important;
+}
+
+/* =========================
+   ESTADO VAZIO
+========================= */
+
+.empty-tickets {
+  padding: 55px 20px;
+
+  text-align: center;
+}
+
+.empty-tickets h3 {
+  margin: 0 0 8px;
+
+  color: #e5e7eb;
+
+  font-size: 16px;
+}
+
+.empty-tickets p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1100px) {
+  .ticket-table {
+    min-width: 1100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ticket-section {
+    width: 95%;
+  }
+
+  .ticket-table {
+    min-width: 1100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ticket-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .ticket-header-actions {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .ticket-section {
+    margin-top: 25px;
+  }
+
+  .create-ticket-button {
+    min-width: 130px;
+  }
+}

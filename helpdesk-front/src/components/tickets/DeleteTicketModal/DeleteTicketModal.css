@@ -1,0 +1,171 @@
+.delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.delete-modal {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 28px;
+
+  background: #1b1c21;
+  border: 1px solid #2d2f36;
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+
+  box-sizing: border-box;
+}
+
+/* Ícone */
+
+.delete-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 18px;
+
+  border-radius: 10px;
+
+  background: #2a1d20;
+  border: 1px solid #4b272b;
+
+  color: #f87171;
+
+  font-size: 22px;
+}
+
+/* Conteúdo */
+
+.delete-modal h2 {
+  margin: 0;
+
+  color: #f3f4f6;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.delete-modal p {
+  margin: 10px 0 0;
+
+  color: #9ca3af;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.delete-modal p strong {
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+/* Ações */
+
+.delete-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 28px;
+  padding-top: 20px;
+
+  border-top: 1px solid #2d2f36;
+}
+
+.delete-modal-actions button {
+  min-height: 40px;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+  border: none;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.delete-modal-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.delete-modal-actions button:active {
+  transform: translateY(0);
+}
+
+/* Cancelar */
+
+.delete-cancel-button {
+  background: #25262d;
+  color: #d1d5db;
+
+  border: 1px solid #363840 !important;
+}
+
+.delete-cancel-button:hover {
+  background: #2d2f36;
+}
+
+/* Confirmar exclusão */
+
+.delete-confirm-button {
+  background: #dc2626;
+  color: #ffffff;
+
+  box-shadow: 0 2px 5px rgba(220, 38, 38, 0.2);
+}
+
+.delete-confirm-button:hover {
+  background: #b91c1c;
+
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+  .delete-modal-overlay {
+    padding: 16px;
+  }
+
+  .delete-modal {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .delete-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .delete-modal-actions button {
+    width: 100%;
+  }
+}

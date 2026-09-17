@@ -1,0 +1,30 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Aberto */
+
+.open {
+  background: #163d2a;
+  color: #4ade80;
+}
+
+/* Em andamento */
+
+.in-progress {
+  background: #403716;
+  color: #facc15;
+}
+
+/* Fechado */
+
+.closed {
+  background: #303238;
+  color: #a1a1aa;
+}

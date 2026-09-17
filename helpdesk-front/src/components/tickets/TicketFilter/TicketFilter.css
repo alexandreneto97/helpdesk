@@ -1,0 +1,31 @@
+.ticket-filters {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ticket-filters label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ticket-filters select {
+  padding: 9px 35px 9px 12px;
+  border: 1px solid #2d2f36;
+  border-radius: 8px;
+
+  background: #1b1c21;
+  color: #fff;
+
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.ticket-filters select:focus {
+  border-color: #555a66;
+}
