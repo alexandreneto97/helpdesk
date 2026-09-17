@@ -288,6 +288,27 @@ Screenshots
 
 Screenshots da aplicação serão adicionados aqui.
 
+##  Screenshots
+
+### Tela de Login
+
+![Tela de Login](screenshots/login.jpeg)
+
+### Aplicação
+
+![Aplicação](screenshots/aplicacao.jpeg)
+
+### Criação de Ticket
+
+![Modal de criação de ticket](screenshots/modalCriacao.jpeg)
+
+### Exclusão de Ticket
+
+![Confirmação de exclusão de ticket](screenshots/exclusao.jpeg)
+
+
+
+
  Validações e segurança
 
 O projeto possui diferentes mecanismos para proteger a aplicação:
