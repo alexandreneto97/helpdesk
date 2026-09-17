@@ -37,7 +37,7 @@ O projeto foi desenvolvido com foco em boas práticas de desenvolvimento, organi
 
 ---
 
-##  Funcionalidades
+## Funcionalidades
 
 ### Autenticação e autorização
 
@@ -75,22 +75,22 @@ O projeto foi desenvolvido com foco em boas práticas de desenvolvimento, organi
 
 ---
 
-##  Controle de acesso
+## Controle de acesso
 
 O sistema possui dois níveis de acesso:
 
 | Funcionalidade | USER | ADMIN |
 |---|:---:|:---:|
-| Visualizar tickets | ✅ | ✅ |
-| Criar tickets | ❌ | ✅ |
-| Editar tickets | ❌ | ✅ |
-| Excluir tickets | ❌ | ✅ |
+| Visualizar tickets | Sim | Sim |
+| Criar tickets | Não | Sim |
+| Editar tickets | Não | Sim |
+| Excluir tickets | Não | Sim |
 
 As permissões são validadas no backend utilizando Spring Security.
 
 ---
 
-##  Arquitetura
+## Arquitetura
 
 O backend foi organizado seguindo uma separação por responsabilidades:
 
@@ -135,7 +135,11 @@ src/main/java/com/alexandre/helpdesk
     ├── CustomUserDetailsService
     ├── JwtService
     └── TicketService
+```
 
+### Fluxo da aplicação
+
+```text
 React + TypeScript
         │
         │ HTTP / REST
@@ -152,143 +156,200 @@ Spring Boot API
         │
         ▼
     PostgreSQL
+```
 
+---
 
- Principais endpoints
-Autenticação
+## Principais endpoints
+
+### Autenticação
+
+```http
 POST /auth/login
-
+```
 
 Realiza a autenticação do usuário e retorna um token JWT.
 
-Tickets
+### Tickets
+
+```http
 GET    /tickets
 GET    /tickets/{id}
 POST   /tickets
 PUT    /tickets/{id}
 DELETE /tickets/{id}
+```
 
-Os endpoints de criação, edição e exclusão exigem perfil ADMIN.
+Os endpoints de criação, edição e exclusão exigem perfil `ADMIN`.
 
- Filtros e paginação
+---
+
+## Filtros e paginação
 
 A API permite consultar tickets utilizando filtros de status e prioridade.
 
 Exemplo:
 
+```http
 GET /tickets?status=OPEN&priority=HIGH
+```
 
 A listagem também utiliza paginação através dos recursos do Spring Data.
 
- Banco de dados
+---
+
+## Banco de dados
 
 O projeto utiliza PostgreSQL para persistência dos dados.
 
 Banco utilizado localmente:
 
+```text
 helpdesk
+```
 
 As credenciais do banco não ficam armazenadas diretamente no código-fonte.
 
-A aplicação utiliza variáveis de ambiente:
+A aplicação utiliza as seguintes variáveis de ambiente:
 
+```text
 DB_URL
 DB_USERNAME
 DB_PASSWORD
 JWT_SECRET
+```
 
-Um arquivo .env.example está disponível no projeto para demonstrar as variáveis necessárias.
+Um arquivo `.env.example` está disponível no projeto para demonstrar as variáveis necessárias.
 
- Configuração do ambiente
-Pré-requisitos
+---
+
+## Configuração do ambiente
+
+### Pré-requisitos
 
 Antes de executar o projeto, tenha instalado:
 
-Java 17
-Maven ou Maven Wrapper
-PostgreSQL
-Node.js
-npm
-Docker (opcional)
-1. Clone o repositório
+- Java 17
+- Maven ou Maven Wrapper
+- PostgreSQL
+- Node.js
+- npm
+- Docker (opcional)
+
+### 1. Clone o repositório
+
+```bash
 git clone https://github.com/alexandreneto97/helpdesk.git
+```
 
 Entre no projeto:
 
+```bash
 cd helpdesk
-2. Configure as variáveis de ambiente
+```
 
-Utilize o arquivo .env.example como referência:
+### 2. Configure as variáveis de ambiente
 
+Utilize o arquivo `.env.example` como referência:
+
+```env
 DB_URL=jdbc:postgresql://localhost:5432/helpdesk
 DB_USERNAME=postgres
 DB_PASSWORD=your_database_password
 JWT_SECRET=your_super_secret_key_with_at_least_32_characters
+```
 
 Configure essas variáveis no ambiente utilizado para executar o backend.
 
-3. Crie o banco de dados
+### 3. Crie o banco de dados
 
 No PostgreSQL:
 
+```sql
 CREATE DATABASE helpdesk;
-4. Execute o backend
+```
+
+### 4. Execute o backend
 
 No Windows:
 
+```bash
 mvnw.cmd spring-boot:run
+```
 
 Ou execute a classe principal:
 
+```text
 HelpdeskApplication
+```
 
 A API estará disponível em:
 
+```text
 http://localhost:8080
- Swagger
+```
+
+---
+
+## Swagger
 
 A documentação da API está disponível através do Swagger UI:
 
+```text
 http://localhost:8080/swagger-ui/index.html
+```
 
 A especificação OpenAPI pode ser acessada em:
 
+```text
 http://localhost:8080/v3/api-docs
- Usuários para demonstração
+```
+
+---
+
+## Usuários para demonstração
 
 O projeto possui usuários de demonstração criados automaticamente para facilitar os testes locais.
 
-Administrador
+### Administrador
+
+```text
 Username: admin
 Password: admin123
 Role: ADMIN
-Usuário
+```
+
+### Usuário
+
+```text
 Username: user
 Password: user123
 Role: USER
+```
 
 As credenciais acima são destinadas exclusivamente ao ambiente de demonstração/local e não devem ser utilizadas em produção.
 
- Interface
+---
+
+## Interface
 
 A aplicação possui uma interface web com:
 
-Tela de login
-Dashboard de tickets
-Filtros
-Paginação
-Indicadores de status e prioridade
-Modal de visualização
-Modal de criação e edição
-Confirmação de exclusão
-Controle visual baseado no perfil do usuário
-Interface responsiva
-Tema escuro
-Screenshots
+- Tela de login
+- Dashboard de tickets
+- Filtros
+- Paginação
+- Indicadores de status e prioridade
+- Modal de visualização
+- Modal de criação e edição
+- Confirmação de exclusão
+- Controle visual baseado no perfil do usuário
+- Interface responsiva
+- Tema escuro
 
-Screenshots da aplicação serão adicionados aqui.
+---
 
-##  Screenshots
+## Screenshots
 
 ### Tela de Login
 
@@ -306,25 +367,28 @@ Screenshots da aplicação serão adicionados aqui.
 
 ![Confirmação de exclusão de ticket](screenshots/exclusao.jpeg)
 
+---
 
-
-
- Validações e segurança
+## Validações e segurança
 
 O projeto possui diferentes mecanismos para proteger a aplicação:
 
-Autenticação utilizando JWT
-Autorização baseada em roles
-Senhas armazenadas com hashing
-Validação dos dados recebidos pela API
-Tratamento global de exceções
-CORS configurado
-Endpoints protegidos
-Secrets configurados através de variáveis de ambiente
+- Autenticação utilizando JWT
+- Autorização baseada em roles
+- Senhas armazenadas com hashing
+- Validação dos dados recebidos pela API
+- Tratamento global de exceções
+- CORS configurado
+- Endpoints protegidos
+- Secrets configurados através de variáveis de ambiente
 
 As regras de autorização são aplicadas no backend, garantindo que as permissões não dependam apenas da interface do usuário.
 
- Estrutura do projeto
+---
+
+## Estrutura do projeto
+
+```text
 helpdesk/
 │
 ├── src/
@@ -334,6 +398,12 @@ helpdesk/
 │   │
 │   └── test/
 │
+├── screenshots/
+│   ├── aplicacao.jpeg
+│   ├── exclusao.jpeg
+│   ├── login.jpeg
+│   └── modalCriacao.jpeg
+│
 ├── .env.example
 ├── .gitignore
 ├── docker-compose.yml
@@ -341,21 +411,28 @@ helpdesk/
 ├── mvnw.cmd
 ├── pom.xml
 └── README.md
- Objetivo do projeto
+```
+
+---
+
+## Objetivo do projeto
 
 Este projeto foi desenvolvido como um projeto de portfólio para demonstrar conhecimentos em desenvolvimento full-stack, incluindo:
 
-Desenvolvimento de APIs REST
-Java e Spring Boot
-Spring Security
-Autenticação e autorização com JWT
-Persistência com PostgreSQL
-Desenvolvimento de interfaces com React e TypeScript
-Integração entre frontend e backend
-Organização e separação de responsabilidades
-Boas práticas de versionamento e configuração
- Autor
+- Desenvolvimento de APIs REST
+- Java e Spring Boot
+- Spring Security
+- Autenticação e autorização com JWT
+- Persistência com PostgreSQL
+- Desenvolvimento de interfaces com React e TypeScript
+- Integração entre frontend e backend
+- Organização e separação de responsabilidades
+- Boas práticas de versionamento e configuração
 
-Alexandre Koutroularis
+---
+
+## Autor
+
+**Alexandre Koutroularis**
 
 Desenvolvedor Full Stack com experiência em Java, Spring Boot, React, Angular, PostgreSQL e desenvolvimento de aplicações web.
